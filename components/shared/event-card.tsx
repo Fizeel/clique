@@ -3,21 +3,9 @@ import Link from 'next/link'
 import { Camera, Images, Video, QrCode } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import type { AppEvent } from '@/lib/types'
 
-export interface AppEvent {
-  id: string
-  name: string
-  event_date: string | null
-  event_type: string
-  cover_image_url: string | null
-  is_active: boolean
-  expires_at: string | null
-  photo_count: number
-  video_count: number
-  allow_videos: boolean
-  user_id: string
-  created_at: string
-}
+export type { AppEvent }
 
 function formatDate(dateString: string | null) {
   if (!dateString) return "Data não definida"

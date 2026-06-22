@@ -1,8 +1,8 @@
 import { createClient } from '@/lib/supabase/server'
 import { isEventExpired } from '@/lib/utils'
-import { GuestUploadPage } from '@/components/guest/guest-upload-page'
+import GuestUploadPage from '@/components/guest/guest-upload-page'
 import { Search, Lock } from 'lucide-react'
-import { AppEvent } from '@/components/shared/event-card'
+import type { AppEvent } from '@/lib/types'
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const supabase = await createClient()

@@ -1,6 +1,7 @@
 'use client'
 
-import { useActionState, useState } from 'react'
+import { useState } from 'react'
+import { useFormState } from 'react-dom'
 import { createEvent } from '@/lib/actions/events'
 import { PageHeader } from '@/components/shared/page-header'
 import { Button } from '@/components/ui/button'
@@ -23,7 +24,7 @@ function SubmitButton() {
 }
 
 export default function NewEventPage() {
-  const [state, formAction] = useActionState(createEvent, null)
+  const [state, formAction] = useFormState(createEvent, null)
   const [name, setName] = useState('')
 
   const slugPreview = name

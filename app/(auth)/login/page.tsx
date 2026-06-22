@@ -1,6 +1,7 @@
 'use client'
 
-import { useActionState, useState } from 'react'
+import { useState } from 'react'
+import { useFormState } from 'react-dom'
 import { useFormStatus } from 'react-dom'
 import { Aperture, Mail, Lock, Loader2 } from 'lucide-react'
 import { signIn } from '@/lib/actions/auth'
@@ -21,7 +22,7 @@ function SubmitButton() {
 }
 
 export default function LoginPage() {
-  const [state, formAction] = useActionState(signIn, null)
+  const [state, formAction] = useFormState(signIn, null)
   const [showForgot, setShowForgot] = useState(false)
 
   return (
