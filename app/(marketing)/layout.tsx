@@ -49,7 +49,7 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
             <Link href="#como-funciona" className="text-sm text-muted hover:text-primary transition-colors">
               Como funciona
             </Link>
-            <Link href="#preco" className="text-sm text-muted hover:text-primary transition-colors">
+            <Link href="#planos" className="text-sm text-muted hover:text-primary transition-colors">
               Preço
             </Link>
             <Link href="#faq" className="text-sm text-muted hover:text-primary transition-colors">
