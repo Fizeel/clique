@@ -7,13 +7,18 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(req: NextRequest) {
   try {
-    // 1. Autenticar webhook via token no header
-    const token = req.headers.get('x-hotmart-webhook-token')
-    if (token !== process.env.HOTMART_WEBHOOK_TOKEN) {
+    // 1. Ler o corpo primeiro (o Hotmart envia o token dentro dele, no campo hottok)
+    const body = await req.json()
+
+    // 2. Autenticar: aceita o token via header (x-hotmart-hottok ou
+    //    x-hotmart-webhook-token) OU no campo hottok do corpo
+    const provided =
+      req.headers.get('x-hotmart-hottok') ||
+      req.headers.get('x-hotmart-webhook-token') ||
+      body?.hottok
+    if (provided !== process.env.HOTMART_WEBHOOK_TOKEN) {
       return Response.json({ error: 'Unauthorized' }, { status: 401 })
     }
-
-    const body = await req.json()
     const event  = body?.event          // 'PURCHASE_COMPLETE' | 'PURCHASE_REFUNDED' etc.
     const email  = body?.data?.buyer?.email
     const name   = body?.data?.buyer?.name || 'Usuário'
@@ -47,9 +52,10 @@ export async function POST(req: NextRequest) {
         return Response.json({ error: 'Erro ao criar usuário' }, { status: 500 })
       }
 
-      // Enviar email com credenciais via Resend
+      // Enviar email com credenciais via Resend (não bloqueia o webhook se falhar)
       const firstName = name.split(' ')[0]
-      await resend.emails.send({
+      try {
+        await resend.emails.send({
         from: process.env.RESEND_FROM_EMAIL!,
         to: email,
         subject: 'Seu acesso ao Cliquê está pronto! 📸',
@@ -70,7 +76,10 @@ export async function POST(req: NextRequest) {
             + '<hr style="margin:32px 0;border:none;border-top:1px solid #EBE8E3"/>'
             + '<p style="color:#A8A29E;font-size:12px;text-align:center">Cliquê · O álbum de quem você ama · suporte@oclique.com.br</p>'
             + '</div>'
-      })
+        })
+      } catch (mailErr) {
+        console.error('Falha ao enviar email de boas-vindas (verifique domínio no Resend):', mailErr)
+      }
 
       return Response.json({ ok: true })
     }
