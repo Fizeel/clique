@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   },
 }
 
-const HOTMART_CHECKOUT_URL = process.env.NEXT_PUBLIC_HOTMART_URL || 'https://pay.hotmart.com/'
+const HOTMART_CHECKOUT_URL = process.env.NEXT_PUBLIC_HOTMART_URL || 'https://pay.hotmart.com/N106442439E?off=9pihhr06&checkoutMode=10'
 
 export default function MarketingLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -44,7 +44,7 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
             </div>
             <p className="text-sm text-muted">O álbum de quem você ama</p>
           </div>
-          
+
           <div className="flex flex-col gap-2">
             <Link href="#como-funciona" className="text-sm text-muted hover:text-primary transition-colors">
               Como funciona
@@ -70,7 +70,7 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
             </a>
           </div>
         </div>
-        
+
         <p className="text-xs text-muted text-center mt-8 pt-8 border-t border-border/50 max-w-5xl mx-auto px-4">
           © {new Date().getFullYear()} Cliquê &middot; Todos os direitos reservados
         </p>
