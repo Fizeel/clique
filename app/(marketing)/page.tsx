@@ -170,22 +170,15 @@ export default function SalesPage() {
 
         {/* ─── VSL ─── */}
         <Reveal delay={120} className="max-w-3xl mx-auto mt-10 sm:mt-14">
-          {/* ════════════════════════════════════════════════════════
-              ÁREA DA VSL — TROQUE o bloco interno pelo seu vídeo.
-              Ex (YouTube):
-              <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/SEU_ID"
-                      title="Cliquê" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                      <iframe src="https://player.vimeo.com/video/1203965207?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1080" height="1920" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="CLIQUÊ"></iframe>
-              ════════════════════════════════════════════════════════ */
-            <iframe src="https://player.vimeo.com/video/1203965207?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1080" height="1920" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerPolicy="strict-origin-when-cross-origin" title="CLIQUÊ"></iframe>}
-          <div className="relative aspect-video rounded-3xl overflow-hidden border border-border shadow-lg bg-gradient-to-br from-primary/90 to-primary-dark">
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-white/95">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/15 backdrop-blur flex items-center justify-center mb-3 ring-1 ring-white/30">
-                <Play className="w-7 h-7 sm:w-9 sm:h-9 fill-current ml-1" />
-              </div>
-              <p className="font-medium text-sm sm:text-base">Assista em 1 minuto como funciona</p>
-              <p className="text-xs text-white/60 mt-1">▶ com áudio</p>
-            </div>
+          <div className="relative w-full max-w-[340px] mx-auto rounded-3xl overflow-hidden border border-border shadow-lg bg-black" style={{ aspectRatio: '9 / 16' }}>
+            <iframe
+              src="https://player.vimeo.com/video/1203965207?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+              className="absolute inset-0 w-full h-full"
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              title="CLIQUÊ"
+            />
           </div>
         </Reveal>
 
