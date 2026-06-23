@@ -26,7 +26,7 @@ export async function createEvent(prevState: any, formData: FormData) {
   }).select().single()
 
   if (error) return { error: 'Erro ao criar evento. Tente novamente.' }
-  redirect('/dashboard/events/' + event.id)
+  redirect('/events/' + event.id)
 }
 
 export async function updateEvent(eventId: string, prevState: any, formData: FormData) {

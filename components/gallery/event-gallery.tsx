@@ -139,7 +139,7 @@ export function EventGallery({ event, initialMedia }: EventGalleryProps) {
         </span>
         <div className="flex gap-2">
           <Button 
-            href={`/dashboard/events/${event.id}/slideshow`} 
+            href={`/events/${event.id}/slideshow`} 
             target="_blank"
             variant="ghost" 
             size="sm" 

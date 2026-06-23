@@ -23,7 +23,7 @@ export function Sidebar({ profile, onClose }: SidebarProps) {
 
   const links = [
     { href: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
-    { href: '/dashboard/events', icon: Images, label: 'Meus Eventos' },
+    { href: '/events', icon: Images, label: 'Meus Eventos' },
   ]
 
   const getInitials = (name: string) => {
@@ -65,7 +65,7 @@ export function Sidebar({ profile, onClose }: SidebarProps) {
         <hr className="border-border my-3" />
 
         <Link
-          href="/dashboard/events/new"
+          href="/events/new"
           onClick={onClose}
           className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-sm font-medium bg-primary text-white hover:bg-primary-dark transition-all w-full"
         >
@@ -91,7 +91,7 @@ export function Sidebar({ profile, onClose }: SidebarProps) {
 
         <div className="flex flex-col gap-1">
           <Link
-            href="/dashboard/settings"
+            href="/settings"
             onClick={onClose}
             className="flex items-center gap-2 px-2 py-2 rounded-lg text-sm font-medium text-muted-dark hover:bg-surface hover:text-primary transition-all"
           >

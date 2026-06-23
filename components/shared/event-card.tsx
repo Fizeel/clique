@@ -78,12 +78,12 @@ export function EventCard({ event }: EventCardProps) {
         </div>
 
         <div className="mt-3 grid grid-cols-2 gap-2 mt-auto">
-          <Link href={`/dashboard/events/${event.id}`} passHref legacyBehavior>
+          <Link href={`/events/${event.id}`} passHref legacyBehavior>
             <Button variant="outline" size="sm" className="w-full" icon={<Images className="w-4 h-4" />}>
               Ver galeria
             </Button>
           </Link>
-          <Link href={`/dashboard/events/${event.id}#qrcode`} passHref legacyBehavior>
+          <Link href={`/events/${event.id}#qrcode`} passHref legacyBehavior>
             <Button variant="outline" size="sm" className="w-full" icon={<QrCode className="w-4 h-4" />}>
               QR Code
             </Button>

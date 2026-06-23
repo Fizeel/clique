@@ -40,7 +40,7 @@ export default async function DashboardPage() {
         title={`Olá, ${firstName}! 👋`}
         subtitle="Gerencie seus eventos e acompanhe as fotos em tempo real"
         action={
-          <Button href="/dashboard/events/new" icon={<Plus className="w-4 h-4" />}>
+          <Button href="/events/new" icon={<Plus className="w-4 h-4" />}>
             Criar novo evento
           </Button>
         }
@@ -101,7 +101,7 @@ export default async function DashboardPage() {
           <Camera className="w-16 h-16 text-muted/30 mx-auto mb-4" />
           <h3 className="font-serif text-xl text-muted mb-2">Nenhum evento criado ainda</h3>
           <p className="text-sm text-muted mb-6">Crie seu primeiro álbum colaborativo e compartilhe com seus convidados.</p>
-          <Button href="/dashboard/events/new" size="lg" icon={<Plus className="w-5 h-5" />}>
+          <Button href="/events/new" size="lg" icon={<Plus className="w-5 h-5" />}>
             Criar meu primeiro evento &rarr;
           </Button>
         </div>
