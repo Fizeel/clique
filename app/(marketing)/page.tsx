@@ -7,12 +7,15 @@ import {
   Gift, Lock, PartyPopper, Heart,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import {
+  ChevronLeft, ChevronRight,
+} from 'lucide-react'
 
 /* ════════════════════════════════════════════════════════════════
    ⬇️  TROQUE AQUI pelos seus links de checkout da Hotmart
    ════════════════════════════════════════════════════════════════ */
-const CHECKOUT_STANDARD = 'https://pay.hotmart.com/SEU-CHECKOUT-STANDARD'
-const CHECKOUT_PRO = 'https://pay.hotmart.com/SEU-CHECKOUT-PRO'
+const CHECKOUT_STANDARD = 'https://pay.hotmart.com/N106442439E?off=zghijbpp'
+const CHECKOUT_PRO = 'https://pay.hotmart.com/N106442439E?off=9pihhr06'
 
 /* Estatística editável do topo (troque pelo número real quando tiver) */
 const EVENTOS_REGISTRADOS = '+1.200'
@@ -50,6 +53,38 @@ function Reveal({ children, delay = 0, className = '' }: { children: ReactNode; 
 const Eyebrow = ({ children }: { children: ReactNode }) => (
   <span className="inline-block text-xs font-semibold tracking-[0.18em] uppercase text-accent-dark mb-3">{children}</span>
 )
+
+/* ─────────── Carrossel (arrasta no celular, setas no PC) ─────────── */
+function Carousel({ children, className = '' }: { children: ReactNode; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const scroll = (dir: number) => {
+    const el = ref.current
+    if (!el) return
+    el.scrollBy({ left: dir * Math.min(el.clientWidth * 0.85, 380), behavior: 'smooth' })
+  }
+  return (
+    <div className={`relative ${className}`}>
+      <div
+        ref={ref}
+        className="flex gap-4 overflow-x-auto px-4 sm:px-12 pb-4 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {children}
+      </div>
+      <button
+        type="button" onClick={() => scroll(-1)} aria-label="Anterior"
+        className="hidden sm:flex absolute left-1 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-surface border border-border shadow-md items-center justify-center text-primary hover:bg-background active:scale-95 transition"
+      >
+        <ChevronLeft className="w-5 h-5" />
+      </button>
+      <button
+        type="button" onClick={() => scroll(1)} aria-label="Próximo"
+        className="hidden sm:flex absolute right-1 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-surface border border-border shadow-md items-center justify-center text-primary hover:bg-background active:scale-95 transition"
+      >
+        <ChevronRight className="w-5 h-5" />
+      </button>
+    </div>
+  )
+}
 
 /* ─────────────────────────────  Dados  ───────────────────────────── */
 const EVENT_TYPES = ['Casamentos', 'Aniversários', '15 Anos', 'Formaturas', 'Chá de Bebê', 'Bodas', 'Corporativo', 'Confraternização']
@@ -273,17 +308,14 @@ export default function SalesPage() {
             <img src="/bonus/card-1.webp" alt="Modelo de card" class="w-full h-full object-cover" />
             ════════════════════════════════════════════════════════ */}
         <Reveal>
-          <div className="flex gap-4 overflow-x-auto px-4 pb-4 snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="snap-center shrink-0 w-44 sm:w-52 aspect-[3/4] rounded-2xl border border-border bg-gradient-to-br from-accent/15 to-primary/10 flex flex-col items-center justify-center text-center p-4">
-                <div className="w-16 h-16 rounded-lg bg-surface border border-border flex items-center justify-center mb-3">
-                  <QrCode className="w-9 h-9 text-primary/70" />
-                </div>
-                <p className="text-xs font-medium text-primary">Modelo de card {i + 1}</p>
-                <p className="text-[10px] text-muted mt-1">troque pela sua imagem</p>
+          <Carousel>
+            {['/bonus/card-1.webp', '/bonus/card-2.webp', '/bonus/card-3.webp', '/bonus/card-4.webp', '/bonus/card-5.webp', '/bonus/card-6.webp'].map((src, i) => (
+              <div key={i} className="snap-center shrink-0 w-44 sm:w-52 aspect-[3/4] rounded-2xl border border-border overflow-hidden bg-surface">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={src} alt={`Modelo de card ${i + 1}`} className="w-full h-full object-cover" />
               </div>
             ))}
-          </div>
+          </Carousel>
         </Reveal>
         <div className="max-w-4xl mx-auto px-4 mt-6 grid sm:grid-cols-2 gap-4">
           <Reveal className="bg-background border border-border rounded-2xl p-5">
@@ -305,24 +337,18 @@ export default function SalesPage() {
             <h2 className="font-serif text-2xl sm:text-4xl text-primary">O que chega no nosso WhatsApp depois da festa</h2>
           </Reveal>
         </div>
-        {/* ════════════════════════════════════════════════════════
-            PRINTS DE WHATSAPP — troque cada bloco por uma imagem real:
-            <img src="/prints/print-1.png" alt="Depoimento" class="w-full h-full object-cover" />
-            ════════════════════════════════════════════════════════ */}
+        {
+
+        }
         <Reveal>
-          <div className="flex gap-4 overflow-x-auto px-4 pb-4 snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden max-w-4xl mx-auto">
-            {Array.from({ length: 4 }).map((_, i) => (
-              <div key={i} className="snap-center shrink-0 w-60 rounded-2xl border border-border overflow-hidden bg-[#ECE5DD]">
-                <div className="bg-[#075E54] text-white text-xs px-3 py-2 flex items-center gap-2">
-                  <span className="w-6 h-6 rounded-full bg-white/20" /> Cliente
-                </div>
-                <div className="p-3 space-y-2 min-h-[180px]">
-                  <div className="bg-white rounded-lg rounded-tl-none px-3 py-2 text-xs text-muted-dark max-w-[85%]">Print de WhatsApp {i + 1}</div>
-                  <div className="bg-[#DCF8C6] rounded-lg rounded-tr-none px-3 py-2 text-xs text-muted-dark max-w-[85%] ml-auto">troque por uma imagem real 💚</div>
-                </div>
+          <Carousel className="max-w-4xl mx-auto">
+            {['/prints/PROVASOCIAL01.png', '/prints/PROVASOCIAL02.png', '/prints/PROVASOCIAL03.png', '/prints/print-4.png'].map((src, i) => (
+              <div key={i} className="snap-center shrink-0 w-60 rounded-2xl border border-border overflow-hidden bg-surface">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={src} alt={`Depoimento ${i + 1}`} className="w-full h-auto" />
               </div>
             ))}
-          </div>
+          </Carousel>
         </Reveal>
 
         {/* depoimentos em texto (troque pelos reais) */}
@@ -330,7 +356,7 @@ export default function SalesPage() {
           {TESTIMONIALS.map((t, i) => (
             <Reveal key={t.name} delay={(i % 2) * 100}>
               <div className="bg-surface border border-border rounded-2xl p-5 h-full">
-                <div className="flex text-accent-dark mb-2">{[0,1,2,3,4].map((s) => <Star key={s} className="w-4 h-4 fill-current" />)}</div>
+                <div className="flex text-accent-dark mb-2">{[0, 1, 2, 3, 4].map((s) => <Star key={s} className="w-4 h-4 fill-current" />)}</div>
                 <p className="text-sm text-muted-dark leading-relaxed mb-3">“{t.t}”</p>
                 <p className="text-sm font-medium text-primary">{t.name}</p>
                 <p className="text-xs text-muted">{t.ev}</p>
