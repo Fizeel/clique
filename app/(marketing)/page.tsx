@@ -337,7 +337,7 @@ export default function SalesPage() {
         }
         <Reveal>
           <Carousel className="max-w-4xl mx-auto">
-            {['/prints/PROVASOCIAL01.png', '/prints/PROVASOCIAL2.png', '/prints/PROVASOCIAL03.png'].map((src, i) => (
+            {['/prints/PROVASOCIAL01.png', '/prints/PROVASOCIAL02.png', '/prints/PROVASOCIAL03.png', '/prints/PROVASOCIAL04.png', '/prints/PROVASOCIAL05.png', '/prints/PROVASOCIAL06.png'].map((src, i) => (
               <div key={i} className="snap-center shrink-0 w-60 rounded-2xl border border-border overflow-hidden bg-surface">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={src} alt={`Depoimento ${i + 1}`} className="w-full h-auto" />
