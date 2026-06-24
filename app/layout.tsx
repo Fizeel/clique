@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
 import './globals.css'
 import { cn } from '@/lib/utils'
+import Script from 'next/script'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -29,10 +30,16 @@ export default function RootLayout({
     <html lang="pt-BR" className={cn(inter.variable, playfair.variable)}>
       <body className="font-sans bg-background">
         {children}
-        <Toaster 
+        <Toaster
           toastOptions={{ duration: 3000 }}
           containerStyle={{ bottom: 80 }}
-          position="bottom-center" 
+          position="bottom-center"
+        />
+        <Script
+          src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+          data-utmify-prevent-xcod-sck
+          data-utmify-prevent-subids
+          strategy="afterInteractive"
         />
       </body>
     </html>

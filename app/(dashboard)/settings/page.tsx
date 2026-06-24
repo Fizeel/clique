@@ -18,7 +18,7 @@ function formatDate(dateString: string) {
 export default async function SettingsPage() {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
-  
+
   if (!user) {
     redirect('/login')
   }
@@ -31,14 +31,14 @@ export default async function SettingsPage() {
 
   return (
     <div className="max-w-2xl mx-auto space-y-6">
-      <PageHeader 
-        title="Configurações" 
-        subtitle="Gerencie sua conta e segurança" 
+      <PageHeader
+        title="Configurações"
+        subtitle="Gerencie sua conta e segurança"
       />
 
       <Card padding="md">
         <h2 className="text-lg font-medium text-primary mb-4">Sua conta</h2>
-        
+
         <div className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
@@ -70,7 +70,7 @@ export default async function SettingsPage() {
         </div>
 
         <p className="text-xs text-muted mt-5 pt-4 border-t border-border">
-          Para alterar nome ou email: suporte@oclique.com.br
+          Para alterar nome ou email: suporte@oclique.top
         </p>
       </Card>
 
@@ -85,7 +85,7 @@ export default async function SettingsPage() {
           Ao sair, você será redirecionado para o login.
         </p>
         <form action={signOut}>
-          <button 
+          <button
             type="submit"
             className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-danger hover:bg-danger/10 rounded-xl transition-colors"
           >

@@ -19,9 +19,9 @@ export async function POST(req: NextRequest) {
     if (provided !== process.env.HOTMART_WEBHOOK_TOKEN) {
       return Response.json({ error: 'Unauthorized' }, { status: 401 })
     }
-    const event  = body?.event          // 'PURCHASE_COMPLETE' | 'PURCHASE_REFUNDED' etc.
-    const email  = body?.data?.buyer?.email
-    const name   = body?.data?.buyer?.name || 'Usuário'
+    const event = body?.event          // 'PURCHASE_COMPLETE' | 'PURCHASE_REFUNDED' etc.
+    const email = body?.data?.buyer?.email
+    const name = body?.data?.buyer?.name || 'Usuário'
 
     if (!email) return Response.json({ ok: true })
 
@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
       const tempPassword = generateTempPassword(10)
 
       const { data: newUser, error: createError } = await supabase.auth.admin.createUser({
-        email, 
+        email,
         password: tempPassword,
         email_confirm: true,
         user_metadata: { full_name: name }
@@ -56,10 +56,10 @@ export async function POST(req: NextRequest) {
       const firstName = name.split(' ')[0]
       try {
         await resend.emails.send({
-        from: process.env.RESEND_FROM_EMAIL!,
-        to: email,
-        subject: 'Seu acesso ao Cliquê está pronto! 📸',
-        html: '<div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:32px 24px">'
+          from: process.env.RESEND_FROM_EMAIL!,
+          to: email,
+          subject: 'Seu acesso ao Cliquê está pronto! 📸',
+          html: '<div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:32px 24px">'
             + '<div style="text-align:center;margin-bottom:24px">'
             + '<span style="font-family:Georgia,serif;font-size:28px;color:#8B5E52">Cliquê</span>'
             + '</div>'
@@ -74,7 +74,7 @@ export async function POST(req: NextRequest) {
             + 'style="display:inline-block;background:#8B5E52;color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:500">'
             + 'Acessar minha conta →</a>'
             + '<hr style="margin:32px 0;border:none;border-top:1px solid #EBE8E3"/>'
-            + '<p style="color:#A8A29E;font-size:12px;text-align:center">Cliquê · O álbum de quem você ama · suporte@oclique.com.br</p>'
+            + '<p style="color:#A8A29E;font-size:12px;text-align:center">Cliquê · O álbum de quem você ama · suporte@oclique.top</p>'
             + '</div>'
         })
       } catch (mailErr) {
@@ -88,7 +88,7 @@ export async function POST(req: NextRequest) {
     if (event === 'PURCHASE_REFUNDED' || event === 'PURCHASE_CHARGEBACK') {
       const { data: { users } } = await supabase.auth.admin.listUsers()
       const user = users.find(u => u.email === email)
-      
+
       if (user) {
         await supabase.auth.admin.updateUserById(user.id, { ban_duration: '876000h' }) // Banido por 100 anos
         await supabase.from('profiles').update({ is_active: false }).eq('id', user.id)

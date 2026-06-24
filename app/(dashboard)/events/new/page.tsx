@@ -12,7 +12,7 @@ import { Card } from '@/components/ui/card'
 import { QRCodeSVG } from 'qrcode.react'
 import { useFormStatus } from 'react-dom'
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://oclique.com.br'
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://oclique.top'
 
 function SubmitButton() {
   const { pending } = useFormStatus()
@@ -36,7 +36,7 @@ export default function NewEventPage() {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <PageHeader 
+      <PageHeader
         title="Criar novo evento"
         subtitle="Configure seu álbum colaborativo em segundos"
         action={
@@ -51,7 +51,7 @@ export default function NewEventPage() {
           <Card padding="md">
             <form action={formAction} className="space-y-4">
               <div>
-                <Input 
+                <Input
                   label="Nome do evento"
                   name="name"
                   required
@@ -60,7 +60,7 @@ export default function NewEventPage() {
                   onChange={(e) => setName(e.target.value)}
                 />
                 <p className="text-xs text-muted/70 mt-1 ml-1">
-                  Link: oclique.com.br/e/{slugPreview || 'nome-do-evento'}-XXXX
+                  Link: oclique.top/e/{slugPreview || 'nome-do-evento'}-XXXX
                 </p>
               </div>
 
@@ -78,13 +78,13 @@ export default function NewEventPage() {
                 ]}
               />
 
-              <Input 
+              <Input
                 type="date"
                 label="Data do Evento"
                 name="event_date"
               />
 
-              <Textarea 
+              <Textarea
                 label="Mensagem para os Convidados"
                 name="custom_message"
                 rows={3}
@@ -107,9 +107,9 @@ export default function NewEventPage() {
           <div className="sticky top-6">
             <Card padding="md" className="text-center">
               <h3 className="text-sm font-medium text-muted mb-4">Preview do QR Code</h3>
-              
+
               <div className="inline-block p-4 bg-white rounded-xl border border-border">
-                <QRCodeSVG 
+                <QRCodeSVG
                   value={`${APP_URL}/e/${slugPreview || 'seu-evento'}`}
                   size={180}
                   fgColor="#8B5E52"

@@ -247,7 +247,7 @@ export default function GuestUploadPage({ event }: { event: AppEvent }) {
 
       {/* FOOTER */}
       <footer className="fixed bottom-0 inset-x-0 bg-surface/80 backdrop-blur w-full py-3 text-center">
-        <p className="text-xs text-muted/50">Powered by Cliquê · oclique.com.br</p>
+        <p className="text-xs text-muted/50">Powered by Cliquê · oclique.top</p>
       </footer>
     </div>
   )

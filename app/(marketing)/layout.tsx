@@ -58,8 +58,8 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
           </div>
 
           <div className="flex flex-col gap-2">
-            <a href="mailto:suporte@oclique.com.br" className="text-sm text-muted hover:text-primary transition-colors">
-              suporte@oclique.com.br
+            <a href="mailto:suporte@oclique.top" className="text-sm text-muted hover:text-primary transition-colors">
+              suporte@oclique.top
             </a>
             <a href="https://instagram.com/oclique" target="_blank" rel="noreferrer" className="text-sm text-muted hover:text-primary transition-colors flex items-center gap-1.5">
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

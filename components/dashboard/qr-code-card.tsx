@@ -22,7 +22,7 @@ interface QrCodeCardProps {
 }
 
 export function QrCodeCard({ event }: QrCodeCardProps) {
-  const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://oclique.com.br'
+  const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://oclique.top'
   const eventUrl = `${APP_URL}/e/${event.slug}`
 
   const [isDeleting, setIsDeleting] = useState(false)
@@ -79,9 +79,9 @@ export function QrCodeCard({ event }: QrCodeCardProps) {
   return (
     <Card padding="md" className="text-center">
       <h3 className="text-sm font-medium text-muted mb-4">Compartilhe com seus convidados</h3>
-      
+
       <div id="qr-code-wrapper" className="inline-block p-4 bg-white rounded-2xl border-2 border-border">
-        <QRCodeSVG 
+        <QRCodeSVG
           id="qr-code-svg"
           value={eventUrl}
           size={200}
@@ -95,18 +95,18 @@ export function QrCodeCard({ event }: QrCodeCardProps) {
       </p>
 
       <div className="grid grid-cols-2 gap-2 mb-4">
-        <Button 
-          variant="outline" 
-          size="sm" 
-          icon={<Copy className="w-4 h-4" />} 
+        <Button
+          variant="outline"
+          size="sm"
+          icon={<Copy className="w-4 h-4" />}
           onClick={copyLink}
         >
           Copiar link
         </Button>
-        <Button 
-          variant="outline" 
-          size="sm" 
-          icon={<Download className="w-4 h-4" />} 
+        <Button
+          variant="outline"
+          size="sm"
+          icon={<Download className="w-4 h-4" />}
           onClick={downloadQR}
         >
           Baixar PNG
@@ -117,7 +117,7 @@ export function QrCodeCard({ event }: QrCodeCardProps) {
 
       <div className="text-left space-y-1.5 text-xs text-muted mb-4">
         <p className="flex items-center gap-2">
-          Status: 
+          Status:
           <span className="flex items-center gap-1 font-medium">
             <span className={`w-2 h-2 rounded-full ${event.is_active ? 'bg-success' : 'bg-muted/60'}`} />
             {event.is_active ? 'Ativo' : 'Pausado'}
@@ -128,19 +128,19 @@ export function QrCodeCard({ event }: QrCodeCardProps) {
       </div>
 
       <div className="space-y-2">
-        <Button 
-          variant="outline" 
-          size="sm" 
+        <Button
+          variant="outline"
+          size="sm"
           className="w-full"
           onClick={handleToggle}
           loading={isToggling}
         >
           {event.is_active ? 'Pausar evento' : 'Reativar evento'}
         </Button>
-        
-        <Button 
-          variant="ghost" 
-          size="sm" 
+
+        <Button
+          variant="ghost"
+          size="sm"
           className="w-full"
           icon={<Edit className="w-4 h-4" />}
           onClick={() => alert('Abrir modal de edição - Será implementado no próximo passo')}
@@ -148,9 +148,9 @@ export function QrCodeCard({ event }: QrCodeCardProps) {
           Editar informações
         </Button>
 
-        <Button 
-          variant="ghost" 
-          size="sm" 
+        <Button
+          variant="ghost"
+          size="sm"
           className="w-full text-danger hover:bg-danger/10 hover:text-danger"
           icon={<Trash2 className="w-4 h-4" />}
           onClick={handleDelete}
