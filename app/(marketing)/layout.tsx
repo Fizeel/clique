@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   },
 }
 
-const HOTMART_CHECKOUT_URL = process.env.NEXT_PUBLIC_HOTMART_URL || 'https://pay.hotmart.com/N106442439E?off=9pihhr06&checkoutMode=10'
+const HOTMART_CHECKOUT_URL = process.env.NEXT_PUBLIC_HOTMART_URL || 'https://pay.hotmart.com/N106442439E?off=di4pjz1e&checkoutMode=10'
 
 export default function MarketingLayout({ children }: { children: React.ReactNode }) {
   return (

@@ -15,7 +15,7 @@ import {
    ⬇️  TROQUE AQUI pelos seus links de checkout da Hotmart
    ════════════════════════════════════════════════════════════════ */
 const CHECKOUT_STANDARD = 'https://pay.hotmart.com/N106442439E?off=zghijbpp&checkoutMode=10'
-const CHECKOUT_PRO = 'https://pay.hotmart.com/N106442439E?off=9pihhr06&checkoutMode=10'
+const CHECKOUT_PRO = 'https://pay.hotmart.com/N106442439E?off=di4pjz1e&checkoutMode=10'
 
 /* Estatística editável do topo (troque pelo número real quando tiver) */
 const EVENTOS_REGISTRADOS = '+1.200'
