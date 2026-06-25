@@ -18,7 +18,7 @@ const CHECKOUT_STANDARD = 'https://pay.hotmart.com/N106442439E?off=zghijbpp&chec
 const CHECKOUT_PRO = 'https://pay.hotmart.com/N106442439E?off=di4pjz1e&checkoutMode=10'
 
 /* Estatística editável do topo (troque pelo número real quando tiver) */
-const EVENTOS_REGISTRADOS = '+1.200'
+const EVENTOS_REGISTRADOS = '+3.500'
 
 /* ─────────────────────────  Reveal on scroll  ───────────────────────── */
 function Reveal({ children, delay = 0, className = '' }: { children: ReactNode; delay?: number; className?: string }) {
@@ -106,10 +106,10 @@ const BENEFITS = [
 
 // img: deixe '' para mostrar as iniciais, ou coloque o caminho de uma foto (ex.: '/depoimentos/carolina.jpg')
 const TESTIMONIALS = [
-  { name: 'Carolina M.', ev: 'Casamento · Out/2025', img: '', t: 'Recebi mais de 400 fotos dos convidados! Momentos que eu nunca teria visto. Chorei vendo cada uma.' },
-  { name: 'Rafael e Bia', ev: 'Aniversário de 30 · Dez/2025', img: '', t: 'O telão com as fotos aparecendo ao vivo foi o ponto alto da festa. Todo mundo correu pra mandar.' },
-  { name: 'Juliana S.', ev: 'Formatura · Jan/2026', img: '', t: 'Tava insegura antes de comprar, mas foi a melhor decisão. Os convidados mandaram MUITO mais do que eu esperava 😍' },
-  { name: 'Mariana D.', ev: 'Chá de Bebê · Fev/2026', img: '', t: 'Revivo a festa toda vez que abro o álbum. São fotos de momentos que eu nem sabia que tinham acontecido 🥹' },
+  { name: 'Carolina F.', ev: 'Casamento · Out/2025', img: '/depoimentos/carolina.jpg', t: 'Recebi mais de 400 fotos dos convidados! Momentos que eu nunca teria visto. Chorei vendo cada uma.' },
+  { name: 'Rafael e Bia', ev: 'Aniversário de 30 · Dez/2025', img: '/depoimentos/rafaelebia.jpg', t: 'O telão com as fotos aparecendo ao vivo foi o ponto alto da festa. Todo mundo correu pra mandar.' },
+  { name: 'Juliana S.', ev: 'Formatura · Jan/2026', img: '/depoimentos/juliana.jpg', t: 'Tava insegura antes de comprar, mas foi a melhor decisão. Os convidados mandaram MUITO mais do que eu esperava 😍' },
+  { name: 'Mariana D.', ev: 'Chá de Bebê · Fev/2026', img: '/depoimentos/mariana.jpg', t: 'Revivo a festa toda vez que abro o álbum. São fotos de momentos que eu nem sabia que tinham acontecido 🥹' },
 ]
 
 const FAQS = [
