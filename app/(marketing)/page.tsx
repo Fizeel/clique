@@ -414,7 +414,7 @@ export default function SalesPage() {
             </div>
           </Reveal>
           <Reveal delay={180}>
-            <p className="mt-7 text-sm text-muted">Tudo isso por menos de <span className="font-serif text-lg text-primary">R$ 57</span> — à vista, uma vez só.</p>
+            <p className="mt-7 text-sm text-muted">Tudo isso por menos de <span className="font-serif text-lg text-primary">R$ 47</span> — à vista, uma vez só.</p>
           </Reveal>
         </div>
       </section>
@@ -467,14 +467,14 @@ export default function SalesPage() {
                   <span className="inline-block text-xs font-semibold text-primary-dark bg-accent rounded-full px-2.5 py-1 mb-2">61% OFF</span>
                   <div className="flex items-end gap-2">
                     <span className="text-sm text-white/50 line-through">R$ 147</span>
-                    <span className="font-serif text-4xl">R$ 57</span>
+                    <span className="font-serif text-4xl">R$ 47</span>
                   </div>
                   <p className="text-xs text-white/60 mt-1">pagamento único</p>
                 </div>
 
                 <div className="mt-5 bg-white/10 ring-1 ring-white/15 rounded-xl px-4 py-3">
                   <p className="text-sm text-white/90">
-                    Por <strong className="text-accent-light">só R$ 20 a mais</strong> que o Standard, sua festa ganha o
+                    Por <strong className="text-accent-light">só R$ 10 a mais</strong> que o Standard, sua festa ganha o
                     <strong className="text-white"> telão ao vivo</strong> — o detalhe que todo mundo comenta depois.
                   </p>
                 </div>
@@ -545,7 +545,7 @@ export default function SalesPage() {
           <Reveal delay={120}>
             <div className="flex flex-col gap-3 max-w-sm mx-auto">
               <Button href={CHECKOUT_PRO} target="_blank" size="lg" className="w-full !bg-accent !text-primary-dark hover:!bg-accent-dark">
-                Quero o Pro — R$ 57 · telão ao vivo
+                Quero o Pro — R$ 47 · telão ao vivo
               </Button>
               <Button href={CHECKOUT_STANDARD} target="_blank" variant="outline" size="lg" className="w-full">
                 Prefiro o Standard — R$ 37
