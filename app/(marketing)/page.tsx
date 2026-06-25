@@ -104,11 +104,12 @@ const BENEFITS = [
   { icon: ShieldCheck, t: 'Seguro por 1 ano', d: 'Fotos e vídeos guardados por 12 meses. Baixe quando quiser.' },
 ]
 
+// img: deixe '' para mostrar as iniciais, ou coloque o caminho de uma foto (ex.: '/depoimentos/carolina.jpg')
 const TESTIMONIALS = [
-  { name: 'Carolina M.', ev: 'Casamento · Out/2025', t: 'Recebi mais de 400 fotos dos convidados! Momentos que eu nunca teria visto. Chorei vendo cada uma.' },
-  { name: 'Rafael e Bia', ev: 'Aniversário de 30 · Dez/2025', t: 'O telão com as fotos aparecendo ao vivo foi o ponto alto da festa. Todo mundo correu pra mandar.' },
-  { name: 'Juliana S.', ev: 'Formatura · Jan/2026', t: 'Tava insegura antes de comprar, mas foi a melhor decisão. Os convidados mandaram MUITO mais do que eu esperava 😍' },
-  { name: 'Mariana D.', ev: 'Chá de Bebê · Fev/2026', t: 'Revivo a festa toda vez que abro o álbum. São fotos de momentos que eu nem sabia que tinham acontecido 🥹' },
+  { name: 'Carolina M.', ev: 'Casamento · Out/2025', img: '', t: 'Recebi mais de 400 fotos dos convidados! Momentos que eu nunca teria visto. Chorei vendo cada uma.' },
+  { name: 'Rafael e Bia', ev: 'Aniversário de 30 · Dez/2025', img: '', t: 'O telão com as fotos aparecendo ao vivo foi o ponto alto da festa. Todo mundo correu pra mandar.' },
+  { name: 'Juliana S.', ev: 'Formatura · Jan/2026', img: '', t: 'Tava insegura antes de comprar, mas foi a melhor decisão. Os convidados mandaram MUITO mais do que eu esperava 😍' },
+  { name: 'Mariana D.', ev: 'Chá de Bebê · Fev/2026', img: '', t: 'Revivo a festa toda vez que abro o álbum. São fotos de momentos que eu nem sabia que tinham acontecido 🥹' },
 ]
 
 const FAQS = [
@@ -210,6 +211,31 @@ export default function SalesPage() {
               <p>Não precisa ser assim. Existe um jeito simples de garantir que nenhum desses momentos se perca.</p>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ═══════════════ DOIS TIPOS DE ANFITRIÃO ═══════════════ */}
+      <section className="px-4 py-12 sm:py-20">
+        <div className="max-w-4xl mx-auto">
+          <Reveal className="text-center mb-10">
+            <Eyebrow>Reconhecimento</Eyebrow>
+            <h2 className="font-serif text-2xl sm:text-4xl text-primary">Existem dois tipos de anfitrião</h2>
+          </Reveal>
+          <div className="grid sm:grid-cols-2 gap-5">
+            <Reveal>
+              <div className="bg-surface border border-border rounded-3xl p-6 sm:p-7 h-full">
+                <h3 className="font-serif text-xl text-muted-dark mb-2">O que confia na sorte</h3>
+                <p className="text-sm text-muted-dark leading-relaxed">Acha que alguém vai mandar as fotos depois. Semanas depois, percebe que as melhores imagens da festa sumiram nos celulares dos convidados — e não voltam mais.</p>
+              </div>
+            </Reveal>
+            <Reveal delay={120}>
+              <div className="bg-primary text-white rounded-3xl p-6 sm:p-7 h-full ring-2 ring-accent">
+                <h3 className="font-serif text-xl mb-2">O que pensa em tudo</h3>
+                <p className="text-sm text-white/85 leading-relaxed">Sabe que a festa também acontece nas mesas, na pista e nos cantos que nenhuma câmera pegou. Não deixa as memórias do grande dia na sorte — coloca um QR Code na mesa e garante cada momento.</p>
+                <p className="mt-4 text-sm font-medium text-accent-light">O Cliquê é pra ele.</p>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -353,11 +379,43 @@ export default function SalesPage() {
               <div className="bg-surface border border-border rounded-2xl p-5 h-full">
                 <div className="flex text-accent-dark mb-2">{[0, 1, 2, 3, 4].map((s) => <Star key={s} className="w-4 h-4 fill-current" />)}</div>
                 <p className="text-sm text-muted-dark leading-relaxed mb-3">“{t.t}”</p>
-                <p className="text-sm font-medium text-primary">{t.name}</p>
-                <p className="text-xs text-muted">{t.ev}</p>
+                <div className="flex items-center gap-3">
+                  {t.img ? (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img src={t.img} alt={t.name} className="w-10 h-10 rounded-full object-cover shrink-0" />
+                  ) : (
+                    <span className="w-10 h-10 rounded-full bg-accent/25 text-primary-dark font-medium text-sm flex items-center justify-center shrink-0">
+                      {t.name.split(' ').map((n) => n[0]).slice(0, 2).join('')}
+                    </span>
+                  )}
+                  <div>
+                    <p className="text-sm font-medium text-primary leading-tight">{t.name}</p>
+                    <p className="text-xs text-muted">{t.ev}</p>
+                  </div>
+                </div>
               </div>
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      {/* ═══════════════ ANCORAGEM DE PREÇO ═══════════════ */}
+      <section className="px-4 py-12 sm:py-20">
+        <div className="max-w-2xl mx-auto text-center">
+          <Reveal>
+            <Eyebrow>Faz as contas</Eyebrow>
+            <h2 className="font-serif text-2xl sm:text-4xl text-primary leading-tight mb-5">Quanto vale não perder nenhum momento da sua festa?</h2>
+          </Reveal>
+          <Reveal delay={100}>
+            <div className="text-muted-dark leading-relaxed space-y-4 text-[15px] sm:text-base text-left">
+              <p>Você investe meses planejando: o salão, a decoração, o buffet, o bolo, o fotógrafo. Às vezes milhares de reais pra que tudo seja perfeito num único dia.</p>
+              <p>O Cliquê reúne cada momento dessa festa num álbum só seu, pra guardar pra sempre. E custa <strong className="text-primary">menos que a toalha de mesa</strong> — menos que o vinho que vai acabar na primeira hora de festa.</p>
+              <p>A diferença é que, daqui a 10, 20 anos, a toalha e o vinho não vão existir mais. <strong className="text-primary">As fotos, sim.</strong></p>
+            </div>
+          </Reveal>
+          <Reveal delay={180}>
+            <p className="mt-7 text-sm text-muted">Tudo isso por menos de <span className="font-serif text-lg text-primary">R$ 57</span> — à vista, uma vez só.</p>
+          </Reveal>
         </div>
       </section>
 
