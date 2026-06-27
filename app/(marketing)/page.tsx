@@ -277,7 +277,7 @@ export default function SalesPage() {
                 ════════════════════════════════════════════════════════ */}
             <div className="relative aspect-video rounded-3xl overflow-hidden border border-border shadow-lg bg-black">
               <iframe
-                src="https://youtu.be/3jBXqhA4Rb0?si=-lxAMD3IUOWOJPtZ"
+                src="https://www.youtube.com/embed/3jBXqhA4Rb0?rel=0"
                 className="absolute inset-0 w-full h-full"
                 title="O Cliquê por dentro"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
