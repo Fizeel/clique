@@ -40,16 +40,12 @@ export default async function EventDetailPage({ params }: { params: { eventId: s
     .limit(100)
 
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6 items-start">
+    <div className="grid lg:grid-cols-[1fr_320px] gap-6 items-start">
       <div className="min-w-0">
         <EventGallery event={event} initialMedia={initialMedia || []} />
       </div>
 
-      <div className="hidden lg:block sticky top-6">
-        <QrCodeCard event={event} />
-      </div>
-
-      <div className="block lg:hidden mt-4">
+      <div className="w-full min-w-0 lg:sticky lg:top-6">
         <QrCodeCard event={event} />
       </div>
     </div>

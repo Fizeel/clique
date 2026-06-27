@@ -21,6 +21,7 @@ export async function createEvent(prevState: any, formData: FormData) {
     event_type:      formData.get('event_type') || 'wedding',
     event_date:      formData.get('event_date') || null,
     custom_message:  (formData.get('custom_message') as string)?.trim() || null,
+    cover_image_url: (formData.get('cover_image_url') as string)?.trim() || null,
     allow_videos:    false,
     max_file_size_mb: 10,
   }).select().single()

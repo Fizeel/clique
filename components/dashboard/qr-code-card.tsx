@@ -80,17 +80,18 @@ export function QrCodeCard({ event }: QrCodeCardProps) {
     <Card padding="md" className="text-center">
       <h3 className="text-sm font-medium text-muted mb-4">Compartilhe com seus convidados</h3>
 
-      <div id="qr-code-wrapper" className="inline-block p-4 bg-white rounded-2xl border-2 border-border">
+      <div id="qr-code-wrapper" className="mx-auto w-full max-w-[220px] p-4 bg-white rounded-2xl border-2 border-border">
         <QRCodeSVG
           id="qr-code-svg"
           value={eventUrl}
           size={200}
+          className="w-full h-auto"
           fgColor="#8B5E52"
           bgColor="#FFFFFF"
         />
       </div>
 
-      <p className="text-xs text-muted font-mono truncate mt-3 mb-4 px-2">
+      <p className="text-xs text-muted font-mono break-all mt-3 mb-4 px-2">
         {eventUrl.replace('https://', '')}
       </p>
 
