@@ -205,10 +205,8 @@ export default function SalesPage() {
           </Reveal>
           <Reveal delay={160}>
             <div className="text-left text-muted-dark leading-relaxed space-y-4 text-[15px] sm:text-base">
-              <p>Aquele abraço apertado, a risada no meio da dança, o detalhe que só um convidado de um cantinho viu. Tudo isso acontece — e tudo isso fica espalhado em dezenas de celulares.</p>
-              <p>Uns mandam no grupo e some no meio de 300 mensagens. Outros falam que enviam depois. E nunca enviam.</p>
+              <p>Os melhores momentos — o abraço apertado, a risada no meio da dança, o detalhe que só um convidado viu — ficam espalhados em dezenas de celulares. Vão pro grupo e somem. Ou no “depois eu te mando” que nunca chega.</p>
               <p className="text-primary font-medium">E aí momentos que aconteceram viram momentos que nunca existiram.</p>
-              <p>Não precisa ser assim. Existe um jeito simples de garantir que nenhum desses momentos se perca.</p>
             </div>
           </Reveal>
         </div>
@@ -261,6 +259,33 @@ export default function SalesPage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ VÍDEO DA INTERFACE (YOUTUBE) ═══════════════ */}
+      <section className="px-4 py-12 sm:py-20 bg-surface border-y border-border">
+        <div className="max-w-3xl mx-auto">
+          <Reveal className="text-center mb-8">
+            <Eyebrow>Veja por dentro</Eyebrow>
+            <h2 className="font-serif text-2xl sm:text-4xl text-primary">O Cliquê por dentro, em 1 minuto</h2>
+            <p className="text-muted mt-3 text-sm sm:text-base">Veja como é simples criar seu álbum e acompanhar as fotos chegando.</p>
+          </Reveal>
+          <Reveal delay={100}>
+            {/* ════════════════════════════════════════════════════════
+                VÍDEO DA INTERFACE — troque SEU_VIDEO_ID pelo ID do seu vídeo do YouTube.
+                Ex: na URL https://www.youtube.com/watch?v=ABC123  →  o ID é ABC123
+                ════════════════════════════════════════════════════════ */}
+            <div className="relative aspect-video rounded-3xl overflow-hidden border border-border shadow-lg bg-black">
+              <iframe
+                src="https://youtu.be/3jBXqhA4Rb0?si=-lxAMD3IUOWOJPtZ"
+                className="absolute inset-0 w-full h-full"
+                title="O Cliquê por dentro"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -414,7 +439,7 @@ export default function SalesPage() {
             </div>
           </Reveal>
           <Reveal delay={180}>
-            <p className="mt-7 text-sm text-muted">Tudo isso por menos de <span className="font-serif text-lg text-primary">R$ 47</span> — à vista, uma vez só.</p>
+            <p className="mt-7 text-sm text-muted">Tudo isso por menos de <span className="font-serif text-lg text-primary">R$ 37</span> — à vista, uma vez só.</p>
           </Reveal>
         </div>
       </section>
@@ -438,7 +463,7 @@ export default function SalesPage() {
                   <span className="inline-block text-xs font-semibold text-success bg-success/10 rounded-full px-2.5 py-1 mb-2">62% OFF</span>
                   <div className="flex items-end gap-2">
                     <span className="text-sm text-muted line-through">R$ 97</span>
-                    <span className="font-serif text-4xl text-primary">R$ 37</span>
+                    <span className="font-serif text-4xl text-primary">R$ 27</span>
                   </div>
                   <p className="text-xs text-muted mt-1">pagamento único</p>
                 </div>
@@ -467,7 +492,7 @@ export default function SalesPage() {
                   <span className="inline-block text-xs font-semibold text-primary-dark bg-accent rounded-full px-2.5 py-1 mb-2">61% OFF</span>
                   <div className="flex items-end gap-2">
                     <span className="text-sm text-white/50 line-through">R$ 147</span>
-                    <span className="font-serif text-4xl">R$ 47</span>
+                    <span className="font-serif text-4xl">R$ 37</span>
                   </div>
                   <p className="text-xs text-white/60 mt-1">pagamento único</p>
                 </div>
@@ -545,10 +570,10 @@ export default function SalesPage() {
           <Reveal delay={120}>
             <div className="flex flex-col gap-3 max-w-sm mx-auto">
               <Button href={CHECKOUT_PRO} target="_blank" size="lg" className="w-full !bg-accent !text-primary-dark hover:!bg-accent-dark">
-                Quero o Pro — R$ 47 · telão ao vivo
+                Quero o Pro — R$ 37 · telão ao vivo
               </Button>
               <Button href={CHECKOUT_STANDARD} target="_blank" variant="outline" size="lg" className="w-full">
-                Prefiro o Standard — R$ 37
+                Prefiro o Standard — R$ 27
               </Button>
             </div>
           </Reveal>
