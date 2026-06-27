@@ -584,7 +584,7 @@ export default function SalesPage() {
       <div className="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-surface/95 backdrop-blur border-t border-border px-4 py-3 flex items-center justify-between gap-3">
         <div className="leading-tight">
           <p className="text-[11px] text-muted">A partir de</p>
-          <p className="font-serif text-lg text-primary">R$ 37</p>
+          <p className="font-serif text-lg text-primary">R$ 27</p>
         </div>
         <a
           href="#planos"
